@@ -5,9 +5,9 @@ using UnityEngine;
 public class DoorTrigger : MonoBehaviour
 {
     public GameObject spawner;
-    void OnTriggerEnter(Collider coll)
+    void OnTriggerEnter(Collider col)
     {
-        if (coll.gameObject.CompareTag("Player"))
+        if (col.gameObject.CompareTag("Player"))
         {
             Debug.Log("walkky");
             spawner.SetActive(true);

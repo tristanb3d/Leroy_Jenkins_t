@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class enmai1 : MonoBehaviour
+public class EnemyFollow : MonoBehaviour
 {
     public GameObject Enm;
     //public GameObject Player;

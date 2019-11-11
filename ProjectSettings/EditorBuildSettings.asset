@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/jenkins_candy_shooter_00003.unity
+    guid: e766943acfeb0ed44ba4571ac766761e
   m_configObjects: {}

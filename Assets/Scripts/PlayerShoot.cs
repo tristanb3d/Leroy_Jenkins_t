@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
-public class Interact1 : MonoBehaviour
+public class PlayerShoot : MonoBehaviour
 {
     public Animation gunani;
-        public Animator ani; 
+    public Animator ani;
     public GameObject player;
     public GameObject Cam;
     public Transform bullets;
@@ -22,13 +21,13 @@ public class Interact1 : MonoBehaviour
 
 
     public Text texty;
-    public  int scorecount = 0;
+    public int scorecount = 0;
 
 
     private void Awake()
     {
-       // texty = GetComponent<Text>();
-      //ani = gameObject.GetComponent<Animator>();
+        // texty = GetComponent<Text>();
+        //ani = gameObject.GetComponent<Animator>();
         // Cursor.visible = false;
     }
     //  void OnDrawGizmosSelected()
@@ -41,12 +40,12 @@ public class Interact1 : MonoBehaviour
     // }
     public void Update()
     {
-       
+
         if (Input.GetButtonDown("Fire1"))
         {
-           
+
             Ray shoot;
-          //  ani.SetBool("newBool", false);
+            //  ani.SetBool("newBool", false);
             //this ray is shooting out from the main cameras screen point center of screen
             shoot = Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2));
             //create hit info
@@ -66,19 +65,19 @@ public class Interact1 : MonoBehaviour
 
             //if this physics raycast hits something within 10 units
             if (Physics.Raycast(shoot, out hitInfo, 100000))
-           
-            if (hitInfo.collider.CompareTag("enm"))
-            {
+
+                if (hitInfo.collider.CompareTag("enm"))
+                {
                     // laserLineRenderer.transform.TransformDirection(Vector3.forward);
                     //    laserLineRenderer.SetPosition(0, Gun.transform.position);
                     //   laserLineRenderer.SetPosition(1, hitInfo.point);
-                  //  firetgr 
+                    //  firetgr 
                     scorecount += 1;
                     Debug.Log("enm");
                     //Destroy(GameObject.FindWithTag("enm"));
                     Destroy(hitInfo.collider.gameObject);
                     texty.text = "Score:  " + scorecount;
-                  //  ani.SetTrigger("firetgr");
+                    //  ani.SetTrigger("firetgr");
                     //ani.SetBool("newBool", true);
                 }
 
@@ -96,10 +95,10 @@ public class Interact1 : MonoBehaviour
 
 
 
-         
-        }
+
         }
     }
+}
 
 
 

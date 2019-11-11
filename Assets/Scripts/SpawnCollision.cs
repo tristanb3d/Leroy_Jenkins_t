@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class coolll : MonoBehaviour
+public class SpawnCollision : MonoBehaviour
 {
     public GameObject Spawner2;
     public float SpawnTimer2 = 10f;

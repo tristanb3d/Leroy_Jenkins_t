@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 [RequireComponent(typeof(CharacterController))]
 //script needs a CC on this object, to ref later, if dose not ahve a cc one will be made
-public class movemofo : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     #region Variables
     [Header("Characters MoveDirection")]
@@ -28,7 +28,6 @@ public class movemofo : MonoBehaviour
     ////// or write itlike public float
 
     #endregion
-
     #region Start
     //charc is on this game object we need to get the character controller that is attached to it
     private void Start()
@@ -37,18 +36,16 @@ public class movemofo : MonoBehaviour
     }
     #endregion
     #region Update
-
-
-    public void LateUpdate ()
+    public void LateUpdate()
     {
         if (Input.GetKey(KeyCode.LeftShift))
         {
             speed = 35;
         }
-      else
-      {
-          speed = 20;
-       }
+        else
+        {
+            speed = 20;
+        }
     }
     private void Update()
     {
@@ -64,27 +61,24 @@ public class movemofo : MonoBehaviour
             //moveDir is transformed in the direction of our moveDir
             //our moveDir is then multiplied by our speed
             moveDirection *= speed;
-
             //we can also jump if we are grounded so
             //in the input button for jump is pressed then
             //our moveDir.y is equal to our jump speed
             if (Input.GetButton("Jump"))
             {
-
                 moveDirection.y = jumpSpeed;
             }
-
-           
-            
-            
-
         }
         //regardless of if we are grounded or not the players moveDir.y is always affected by gravity timesed my time.deltaTime to normalize it
         moveDirection.y -= gravity * Time.deltaTime;
-        //we then tell the character Controller that it is moving in a direction timesed Time.deltaTime
-        _characterController.Move(moveDirection * Time.deltaTime);
-        #endregion
-
-
+        
+        Move(moveDirection);
     }
+
+    public void Move(Vector3 direction)
+    {
+        //we then tell the character Controller that it is moving in a direction timesed Time.deltaTime
+        _characterController.Move(direction * Time.deltaTime);
+    }
+    #endregion
 }

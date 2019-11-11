@@ -3,21 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class points : MonoBehaviour
+public class ScoreManager : MonoBehaviour
 {
     //public static int scorepoints;
-    public Text texty;
-    public static int scorecount = 0;
-
+    public Text textElement;
+    public static int scoreCount = 0;
     private void Awake()
     {
-        texty = GetComponent<Text>();
-        scorecount = 0;
+        textElement = GetComponent<Text>();
+        scoreCount = 0;
         // Cursor.visible = false;
     }
     private void Update()
     {
-        texty.text = "Score: " + scorecount;
+        textElement.text = "Score: " + scoreCount;
     }
-
 }
