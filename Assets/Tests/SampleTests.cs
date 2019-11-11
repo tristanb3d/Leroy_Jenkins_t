@@ -44,7 +44,7 @@ namespace Tests
             Vector3 newPosition = player.transform.position;
 
             // C. Check if the Player's position indicates movement
-            Assert.AreEqual(oldPosition, newPosition);
+            Assert.AreNotEqual(oldPosition, newPosition);
         }
 
 
